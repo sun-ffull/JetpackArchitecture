@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="user"
+            type="com.sunfull.databindingwithinclude.User" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <!--userr == contact.xml에 선언된 variable의 name
+            user == activity_main에 선언된 variable의 name
+            activity_main을 binding 했기 때문에 setUser()는 activity_main의
+            user를 설정. 결국 include한 xml의 TextView에 값을 나타내기 위해서는
+            contact.xml에 선언된 variable(userr)에 user를 대입해야함.
+            해당 코드가 app:userr = "@{user}"-->
+        <include layout="@layout/contact"
+            app:userr = "@{user}"/>
+
+    </LinearLayout>
+</layout>
